@@ -1,0 +1,81 @@
+#placas{    
+    margin-top: 15px;
+    display: flex;  
+    flex-wrap:wrap;
+    flex-direction: row;
+}
+#placas > img{
+    display: block;
+}
+#baneado{
+    background-color: lightslategray;
+}
+
+#baneado > h2 {
+    padding-top: 10%;
+}
+
+.profile-card{
+    max-height: 100%;
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+}
+
+.form-profile{
+    background-color: cornflowerblue;
+    min-width: 5%;
+    max-width: 80%;    
+    padding: 50px;
+    
+}
+
+.form-full-width{
+    min-width: 30%;
+    max-width: 80%;
+}
+
+.profile_datos{
+    text-align: center;
+    background-color: cornsilk;     
+    min-width: 128px;
+    max-width: 80%;
+}
+
+.lista-friends{
+    background-color: crimson;
+}
+
+.profile-nickname{
+    background-color: cyan;
+    min-width: 128px;
+    max-width: 80%;
+    padding: 50px;
+}
+
+img{
+    max-width: 128px;
+}
+
+.lista_amigos{
+    display: flex;
+    background-color: lightslategray;
+}
+
+.lista_amigos:active{
+    background-color: darkkhaki;
+}
+
+.content-amigos{   
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: row;    
+}
+
+.content-amigos > div{    
+    padding: 10px;
+    width: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+

@@ -1,0 +1,46 @@
+    <mat-card>
+        <form class="form-profile" [formGroup]="profileForm">
+            <mat-form-field class="form-full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nickname" formControlName="name">        
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit" (click)="buscar()">Buscar</button>      
+        </form>
+    </mat-card>
+    <mat-card class="profile-card">
+        <mat-card-header *ngIf ="profile">
+            <div>
+            <mat-card-title>{{profile.name}}</mat-card-title>
+            <mat-card-subtitle>Perfil: {{profile.profileVisible}}</mat-card-subtitle>
+            
+                <img src="{{imagen}}" width="128" height="220">
+                <div style="text-align: center;">{{profile.memberSince}}</div>
+            </div>
+            <mat-card-content *ngIf ="profile">
+                <div id="placas" *ngFor = "let badges of selectedBadges">
+                    <img src="https://habboo-a.akamaihd.net/c_images/album1584/{{badges.code}}.png">                    
+                    <h4>{{badges.name}}</h4>                    
+                </div>
+            </mat-card-content>
+        </mat-card-header>           
+    </mat-card>
+    <mat-card class="profile-card">
+        <mat-card-header id="baneado" *ngIf ="beneado">
+            <h2>{{mensaje}}</h2>
+            <img src="https://www.habbo.es/habbo-imaging/avatarimage?direction=4&head_direction=3&action=wav&gesture=sml&size=m&user=Sr.Guitarron" width="128" height="220">
+        </mat-card-header>           
+    </mat-card>
+    <mat-card>
+        <mat-card-header> 
+            <mat-card-content *ngIf="friends"> 
+                <mat-card-title>Amigos ({{friends.length}})</mat-card-title>
+                <div class="content-amigos">
+                    <div class="lista_amigos" (click)="amigo_usuario(amigo.uniqueId)" *ngFor="let amigo of friends">
+                        <img src="https://www.habbo.es/habbo-imaging/avatarimage?hb=img&user={{amigo.name}}&size=b&headonly=1" width="50" height="50"> 
+                        <div class="datos-amigos"><h4>{{amigo.name}}</h4></div>           
+                    </div>
+                </div>                  
+            </mat-card-content>  
+    </mat-card-header>               
+    </mat-card>
+
