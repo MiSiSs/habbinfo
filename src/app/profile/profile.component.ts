@@ -1,4 +1,4 @@
-import { catchError } from 'rxjs/operators';
+import { FriendsComponent } from './friends/friends.component';
 import { Friend } from './../_model/friends';
 import { ProfileService } from './../_service/profile.service';
 import { Component, OnInit, Input } from '@angular/core';
@@ -6,6 +6,7 @@ import { Profile } from '../_model/profile';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Badge } from '../_model/badge';
 import * as moment from 'moment';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -28,8 +29,10 @@ export class ProfileComponent implements OnInit {
   placas: string;
 
   selectedBadges: Badge[];
+
+  amigosComunes: string[];
   
-  constructor(private profileService: ProfileService) { 
+  constructor(private profileService: ProfileService, private dialog: MatDialog) { 
       this.profileForm = new FormGroup({
         'name': new FormControl('')
       })
@@ -74,9 +77,12 @@ export class ProfileComponent implements OnInit {
 
   }
   
-  openDialog(){
-    
-  }
+  openDialog(amigos: string[]){
+    this.dialog.open(FriendsComponent, {
+      data: amigos
+    });
+
+    }
 
   amigo_usuario(uniqueId: string){
     
@@ -86,14 +92,18 @@ export class ProfileComponent implements OnInit {
       console.log("tiene "+data.length+" amigos");
       
       if(this.friends.length > data.length){
-        this.comparador(data, this.friends);
+        this.amigosComunes = this.comparador(data, this.friends);
       }else{
-        this.comparador(this.friends, data);
+        this.amigosComunes = this.comparador(this.friends, data);
       }
       
+      this.openDialog(this.amigosComunes);
+
     },(error) =>{
       console.error("entro");
     })
+
+    
   }
 
   comparador(amigoX:Friend[], amigoY:Friend[]){
@@ -108,8 +118,10 @@ export class ProfileComponent implements OnInit {
         }
       })
     })
+
     console.log("Amigos en comun es: "+conteo);
     console.log(amigos_comun);
+    return amigos_comun;
   }
 
   limpiar(){

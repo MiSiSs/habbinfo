@@ -14,6 +14,10 @@ import { FriendsComponent } from './profile/friends/friends.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatListModule,
     MatCardModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
