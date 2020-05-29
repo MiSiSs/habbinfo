@@ -1,8 +1,8 @@
+import { Profile } from './../_model/profile';
 import { FriendsComponent } from './friends/friends.component';
 import { Friend } from './../_model/friends';
 import { ProfileService } from './../_service/profile.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { Profile } from '../_model/profile';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Badge } from '../_model/badge';
 import * as moment from 'moment';
@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
 
   selectedBadges: Badge[];
 
-  amigosComunes: string[];
+  amigosComunes: Friend[];
   
   constructor(private profileService: ProfileService, private dialog: MatDialog) { 
       this.profileForm = new FormGroup({
@@ -77,52 +77,31 @@ export class ProfileComponent implements OnInit {
 
   }
   
-  openDialog(amigos: string[]){
+  openDialog(amigos: Profile[]){
+    
     this.dialog.open(FriendsComponent, {
       data: amigos
     });
-
     }
 
-  amigo_usuario(uniqueId: string){
-    
-    console.log(uniqueId);
-    this.profileService.friend_profile(uniqueId).subscribe(data => {      
-      
-      console.log("tiene "+data.length+" amigos");
-      
-      if(this.friends.length > data.length){
-        this.amigosComunes = this.comparador(data, this.friends);
+  amigo_usuario(name: string){
+    let profile: Profile[] = [];
+
+    this.profileService.name_profile(name).subscribe(data => {
+      if(data.profileVisible == true){
+        profile.push(this.profile, data);
+        this.openDialog(profile);
       }else{
-        this.amigosComunes = this.comparador(this.friends, data);
+        profile.push(data);
+        this.openDialog(profile);
       }
-      
-      this.openDialog(this.amigosComunes);
-
-    },(error) =>{
-      console.error("entro");
+    }, error=>{      
+      this.openDialog(profile);
     })
 
-    
+  
   }
 
-  comparador(amigoX:Friend[], amigoY:Friend[]){
-    let conteo = 0;
-    let amigos_comun: string[] = [];
-    
-    amigoX.forEach(amigoX1 =>{
-      amigoY.forEach(amigo2 =>{
-        if(amigoX1.name == amigo2.name){
-          amigos_comun.push(amigoX1.name);
-          conteo++;
-        }
-      })
-    })
-
-    console.log("Amigos en comun es: "+conteo);
-    console.log(amigos_comun);
-    return amigos_comun;
-  }
 
   limpiar(){
     this.unicode = '';

@@ -1,2 +1,13 @@
-<p>friends works!</p>
+<h1 style="text-align: center;">Amigos en Común</h1>
 
+<mat-dialog-content *ngIf="profile_destino">
+    <div>
+        <h2 style="text-align: center;">{{profile_origen.name}} || {{profile_destino.name}}</h2>
+        <div class="content-amigos">
+            <div class="lista_amigos" *ngFor="let amigos of friend_comun">
+                <img src="https://www.habbo.es/habbo-imaging/avatarimage?hb=img&user={{amigos.name}}&size=b&headonly=1" width="50" height="50"> 
+                <div class="datos-amigos"><h4>{{amigos.name}}</h4></div> 
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
