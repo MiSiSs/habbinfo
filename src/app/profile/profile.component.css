@@ -1,3 +1,27 @@
+mat-card{
+    background-color: rgb(230, 240, 245);
+}
+
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #ffb900 !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #ffb900 !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #ffb900 !important;;
+  }
+
+mat-button{
+    background-color: #ffb900 !important;;
+}
+
 #placas{    
     margin-top: 15px;
     display: flex;  
@@ -29,9 +53,19 @@
 }
 
 .form-profile{
-    background-color: cornflowerblue;  
+    background: transparent;
+    background-color: rgb(0, 23, 38);
     padding: 50px;
     
+}
+
+#conteo_amigos{
+    align-items: initial;
+    padding-top: 20px;
+    padding-bottom: 20px; 
+    padding-left: 50px;
+    background-color:  rgb(14, 57, 85);
+    border-color: rgb(14, 57, 85);
 }
 
 .form-full-width{
@@ -83,3 +117,7 @@ img{
     margin-bottom: 20px;
 }
 
+#amigos_lista{
+    padding: 20px;
+    background-color: rgb(0, 23, 38);    
+}

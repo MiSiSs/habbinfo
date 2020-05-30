@@ -7,8 +7,9 @@
             <button mat-raised-button color="primary" type="submit" (click)="buscar()">Buscar</button>      
         </form>
     </mat-card>
-    <mat-card class="profile-card" *ngIf ="profile">
-        <mat-card-header>
+    <mat-card class="profile-card" *ngIf ="profile">        
+        
+        <mat-card-header>            
             <div id="profile-name">
             <mat-card-title>{{profile.name}}</mat-card-title>
             <mat-card-subtitle>Perfil: {{profile.profileVisible}}</mat-card-subtitle>            
@@ -30,9 +31,9 @@
         </mat-card-header>           
     </mat-card>
     <mat-card *ngIf="friends">
-        <mat-card-header> 
-            <mat-card-content> 
-                <mat-card-title>Amigos ({{friends.length}})</mat-card-title>
+        <mat-card-title id="conteo_amigos">Amigos ({{friends.length}})</mat-card-title>
+        <mat-card-header id="amigos_lista">                        
+            <mat-card-content>                 
                 <div class="content-amigos">
                     <div class="lista_amigos" (click)="amigo_usuario(amigo.name)" *ngFor="let amigo of friends">
                         <img src="https://www.habbo.es/habbo-imaging/avatarimage?hb=img&user={{amigo.name}}&size=b&headonly=1" width="50" height="50"> 
