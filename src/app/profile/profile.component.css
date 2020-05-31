@@ -2,7 +2,6 @@ mat-card{
     background-color: rgb(230, 240, 245);
 }
 
-
 ::ng-deep .mat-focused .mat-form-field-label {
     /*change color of label*/
     color: #ffb900 !important;
@@ -11,6 +10,7 @@ mat-card{
    ::ng-deep.mat-form-field-underline {
     /*change color of underline*/
     background-color: #ffb900 !important;
+    
   } 
   
   ::ng-deep.mat-form-field-ripple {
@@ -18,8 +18,16 @@ mat-card{
    background-color: #ffb900 !important;;
   }
 
-mat-button{
-    background-color: #ffb900 !important;;
+button{
+    margin-left: 1%;
+    background-color: rgb(0, 129, 62) !important;
+    border-color: rgb(142, 218, 85);
+    border-style: solid;
+}
+
+#placa_imagen{
+    background-color: transparent;
+    margin-right: 10px;
 }
 
 #placas{    
@@ -62,8 +70,9 @@ mat-button{
 #conteo_amigos{
     align-items: initial;
     padding-top: 20px;
-    padding-bottom: 20px; 
+    padding-bottom: 25px; 
     padding-left: 50px;
+    margin-bottom: -10px;
     background-color:  rgb(14, 57, 85);
     border-color: rgb(14, 57, 85);
 }
@@ -84,8 +93,7 @@ mat-button{
     background-color: crimson;
 }
 
-.profile-nickname{
-    background-color: cyan;
+.profile-nickname{    
     min-width: 128px;
     max-width: 80%;
     padding: 50px;
@@ -97,27 +105,30 @@ img{
 
 .lista_amigos{
     display: flex;
-    background-color: lightslategray;
+    background-color: rgb(11, 99, 149);
 }
 
 .lista_amigos:active{
     background-color: darkkhaki;
 }
 
-.content-amigos{   
+.content-amigos{      
     display: flex;
     flex-wrap:wrap;
-    flex-direction: row;    
+    flex-direction: row;
+    
 }
 
 .content-amigos > div{    
     padding: 10px;
     width: 200px;
+    align-content: center;    
     margin-right: 20px;
     margin-bottom: 20px;
 }
 
 #amigos_lista{
-    padding: 20px;
-    background-color: rgb(0, 23, 38);    
+    padding-top: 2%;
+    background-color: rgb(0, 23, 38); 
+    margin-bottom: 10px;  
 }

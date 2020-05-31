@@ -18,7 +18,7 @@
             </div>
             <mat-card-content *ngIf ="profile">
                 <div id="placas" *ngFor = "let badges of selectedBadges">
-                    <img src="https://habboo-a.akamaihd.net/c_images/album1584/{{badges.code}}.png">                    
+                    <img id="placa_imagen" src="https://habboo-a.akamaihd.net/c_images/album1584/{{badges.code}}.png">                    
                     <h4>{{badges.name}}</h4>                    
                 </div>
             </mat-card-content>
