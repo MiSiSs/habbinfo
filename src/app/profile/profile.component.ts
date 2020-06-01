@@ -62,6 +62,7 @@ export class ProfileComponent implements OnInit {
       if(data.profileVisible != false){
         this.profileService.friend_profile(data.uniqueId).subscribe(list => { 
           this.friends = list;
+          console.log(this.friends);
           console.log(this.friends.length);
           this.beneado = false;   
         });
@@ -71,7 +72,7 @@ export class ProfileComponent implements OnInit {
     }, error =>{
       this.profile = null;
       this.beneado = true;
-      this.mensaje = "El usuario no existe o esta baneado";
+      this.mensaje = nickname;
       this.friends = null;              
     });     
 
@@ -85,6 +86,7 @@ export class ProfileComponent implements OnInit {
     }
 
   amigo_usuario(name: string){
+    console.log(name);
     let profile: Profile[] = [];
 
     this.profileService.name_profile(name).subscribe(data => {

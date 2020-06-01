@@ -48,3 +48,8 @@ mat-toolbar{
   font-family: "Ubuntu Condensed","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
 
 }
+
+#img_logo{
+  margin-right: 5px;
+  margin-left: -15px;
+}
