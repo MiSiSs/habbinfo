@@ -7,7 +7,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Badge } from '../_model/badge';
 import * as moment from 'moment';
 import { MatDialog } from '@angular/material/dialog';
-
+import { IMG_NAME_BANEADO, IMG_NAME, IMG_BADGES } from '../_shared/var.constant';
 
 @Component({
   selector: 'app-profile',
@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit {
   cantidad: string[];
   mensaje: string;
   imagen: string;
+  imagen_baneado: string;
   placas: string;
 
   selectedBadges: Badge[];
@@ -42,8 +43,8 @@ export class ProfileComponent implements OnInit {
       this.nombre = '';
       this.unicode = '';
       this.look = '';
-      this.imagen = 'https://www.habbo.es/habbo-imaging/avatarimage?direction=4&head_direction=3&action=wav&gesture=sml&size=m&user=Sr.Guitarron';
   }
+
 
   buscar(){
     
@@ -55,15 +56,12 @@ export class ProfileComponent implements OnInit {
       console.log(fecha);
       data.memberSince = fecha;
       this.profile = data;
-
-      this.imagen = `https://www.habbo.com/habbo-imaging/avatarimage?size=l&figure=`+this.profile.figureString+`&direction=2&head_direction=2`
+      this.imagen = IMG_NAME(this.profile.figureString);      
       this.selectedBadges = this.profile.selectedBadges;
       
       if(data.profileVisible != false){
         this.profileService.friend_profile(data.uniqueId).subscribe(list => { 
           this.friends = list;
-          console.log(this.friends);
-          console.log(this.friends.length);
           this.beneado = false;   
         });
       }else{
@@ -73,12 +71,13 @@ export class ProfileComponent implements OnInit {
       this.profile = null;
       this.beneado = true;
       this.mensaje = nickname;
-      this.friends = null;              
+      this.friends = null;   
+      this.imagen_baneado = IMG_NAME_BANEADO;  
     });     
 
   }
   
-  openDialog(amigos: Profile[]){
+  openDialog(amigos: string[]){
     
     this.dialog.open(FriendsComponent, {
       data: amigos
@@ -87,23 +86,11 @@ export class ProfileComponent implements OnInit {
 
   amigo_usuario(name: string){
     console.log(name);
-    let profile: Profile[] = [];
+    let amigos_comun: string[] = [];
+    amigos_comun.push(this.profile.name, name);
 
-    this.profileService.name_profile(name).subscribe(data => {
-      if(data.profileVisible == true){
-        profile.push(this.profile, data);
-        this.openDialog(profile);
-      }else{
-        profile.push(data);
-        this.openDialog(profile);
-      }
-    }, error=>{      
-      this.openDialog(profile);
-    })
-
-  
-  }
-
+    this.openDialog(amigos_comun);
+  } 
 
   limpiar(){
     this.unicode = '';

@@ -90,7 +90,8 @@ button{
     padding-left: 50px;
     margin-bottom: -10px;
     background-color:  rgb(14, 57, 85);
-    border-color: rgb(14, 57, 85);
+    border-style: double;
+    border-color: rgb(38, 133, 188);
 }
 
 .form-full-width{
@@ -122,10 +123,12 @@ img{
 .lista_amigos{
     display: flex;
     background-color: rgb(11, 99, 149);
+    border-style: double;
+    border-color: rgb(38, 133, 188);
 }
 
 .lista_amigos:active{
-    background-color: darkkhaki;
+    background-color: rgb(38, 133, 188);
 }
 
 .content-amigos{      
@@ -146,5 +149,10 @@ img{
 #amigos_lista{
     padding-top: 2%;
     background-color: rgb(0, 23, 38); 
-    margin-bottom: 10px;  
+    margin-bottom: 10px; 
+    border-style: double;
+    border-left-color: rgb(38, 133, 188);
+    border-right-color: rgb(38, 133, 188);
+    border-bottom-color: rgb(38, 133, 188);
+    border-top: transparent;
 }

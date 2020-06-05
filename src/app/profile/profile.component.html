@@ -18,7 +18,7 @@
             </div>
             <mat-card-content *ngIf ="profile">
                 <div id="placas" *ngFor = "let badges of selectedBadges">
-                    <img id="placa_imagen" src="https://habboo-a.akamaihd.net/c_images/album1584/{{badges.code}}.png">                    
+                    <img id="placa_imagen" src="https://habboo-a.akamaihd.net/c_images/album1584/{{badges.code}}.png">
                     <h4>{{badges.name}}</h4>                    
                 </div>
             </mat-card-content>
@@ -31,7 +31,7 @@
                 <h1>BUSQUEDA NO ENCONTRADA</h1>
                 <h2>El usuario {{mensaje}} no existe o esta baneado</h2> 
             </div>            
-            <img src="https://www.habbo.es/habbo-imaging/avatarimage?direction=4&head_direction=3&action=wav&gesture=sml&size=m&user=Sr.Guitarron" width="128" height="220">
+            <img src="{{imagen_baneado}}" width="128" height="220">
         </mat-card-header>           
     </mat-card>
     <mat-card *ngIf="friends">
@@ -45,6 +45,5 @@
                     </div>
                 </div>                  
             </mat-card-content>  
-    </mat-card-header>               
+        </mat-card-header>               
     </mat-card>
-

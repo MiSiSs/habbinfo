@@ -11,7 +11,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class FriendsComponent implements OnInit{
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Profile[], private profileService: ProfileService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: string[], private profileService: ProfileService) { }
 
   profile_origen: Profile;
   profile_destino: Profile;
@@ -20,19 +20,33 @@ export class FriendsComponent implements OnInit{
   friend_destino: Friend[] = [];
 
   friend_comun: Friend[] = [];
+  con_amigos: boolean = false;
+  amigo_baneado: boolean = false;
+  sin_amigos: boolean = false;
+  perfil_cerrado: boolean = false;
+  name_baneado: string;
 
   ngOnInit(): void {
 
-    if(this.data.length > 1){
-      console.log(this.data);
-      this.profile_origen = this.data[0];
-      this.profile_destino = this.data[1];
-      this.comparar(this.profile_origen, this.profile_destino);
+    let name_origen = "";
+    let name_destino = "";
 
-    }else{
-      console.log(this.data+" BAN o false");
-    }    
-    
+    name_origen  = this.data[0];
+    name_destino = this.data[1];
+
+    this.profileService.name_profile(name_origen).subscribe(data_origen => {
+      this.profile_origen = data_origen;
+
+      this.profileService.name_profile(name_destino).subscribe(data_destino => {
+        this.profile_destino = data_destino;
+
+        this.comparar(this.profile_destino, this.profile_origen);
+      }, amigo_baneado=>{
+        this.con_amigos = false;
+        this.amigo_baneado = true;
+        this.name_baneado = name_destino;
+    })
+  }) 
   }
 
   comparar(p_destino: Profile, p_origen: Profile){
@@ -48,7 +62,18 @@ export class FriendsComponent implements OnInit{
         }else{
           this.comparar_amigosComun(this.friend_destino, this.friend_origen);
         }
+        
+        if(this.friend_comun.length > 0){
+          this.con_amigos = true; 
+        }else{
+          this.con_amigos = false;
+          this.sin_amigos = true;
+        }
       });
+    }, sino => {
+      this.con_amigos = false;
+      this.sin_amigos = false;
+      this.perfil_cerrado = true;
     });
     
   }
@@ -64,10 +89,6 @@ export class FriendsComponent implements OnInit{
         }
       })
     });
-
-    console.log("Amigos en comun es: "+conteo);
-    console.log(this.friend_comun);
-
   }
 
 }

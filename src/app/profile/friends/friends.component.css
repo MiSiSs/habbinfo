@@ -1,6 +1,24 @@
+#con_amigos{
+    border-width: initial;
+    border-radius: 0ex;
+    padding: initial;
+    background-color: rgb(82, 143, 180);
+}
+mat-card-title{
+    text-align: center;
+    background-color: rgb(14, 57, 85);
+    color: rgb(230, 240, 245);
+    margin-top: initial;
+    margin-left: initial;
+    margin-left: initial;
+}
+
 .lista_amigos{
     display: flex;
-    background-color: lightslategray;
+    border-style: double;
+    border-color: rgb(123, 198, 234);
+    background-color: rgb(230, 240, 245);
+    color: rgb(0, 51, 102);
 }
 
 .content-amigos{   
@@ -12,6 +30,19 @@
 .content-amigos > div{    
     padding: 10px;
     width: 200px;
-    margin-right: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
     margin-bottom: 20px;
+}
+
+#img_comun{
+    text-align: center;
+    background-color: transparent;
+    padding-bottom: 10px;
+}
+
+#nombres_amigos{
+    background-color: transparent;
+    justify-content: center;
+    display: flex;
 }
