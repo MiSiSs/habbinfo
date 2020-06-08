@@ -21,14 +21,26 @@
 </div>
 <ng-template #elseBlock>
     <div *ngIf="amigo_baneado" id="sin_amigos">
-        <h2>:O EL AMIGO {{name_baneado}} ESTA BANEADO :(</h2>
-        <img src="https://www.habbo.es/habbo-imaging/avatarimage?direction=4&head_direction=3&action=wav&gesture=sml&size=m&user={{name_baneado}}">
+        <mat-icon>cancel</mat-icon>
+        <div>
+            <h1>VAYA VAYA</h1>
+            <h2>EL AMIGO {{name_baneado}} ESTA BANEADO :(</h2>
+            <img src="https://www.habbo.es/habbo-imaging/avatarimage?direction=4&head_direction=3&action=wav&gesture=sml&size=m&user={{name_baneado}}">
+        </div>
     </div>
     <div *ngIf="perfil_cerrado">
-        <h2>EL PERFIL {{profile_destino.name}} ESTA CERRADO</h2>
+        <h2 id="h2_perfil_cerrado">EL PERFIL {{profile_destino.name}} ESTA CERRADO</h2>
+        <div id="img_perfil_cerrado">
+            <img src="https://www.habbo.es/habbo-imaging/avatarimage?direction=2&head_direction=2&action=wav&gesture=sml&size=m&user={{profile_origen.name}}">
+            <img src="https://www.habbo.es/habbo-imaging/avatarimage?direction=4&head_direction=2&action=wav&gesture=sml&size=m&user={{profile_destino.name}}">
+        </div>
     </div>
     <div *ngIf="sin_amigos">
-        <h1>NO TIENE AMIGOS EN COMUN</h1>
+        <h1 id="h2_perfil_cerrado">NO TIENEN AMIGOS EN COMUN</h1>
+        <div id="img_perfil_cerrado">
+            <img src="https://www.habbo.es/habbo-imaging/avatarimage?direction=2&head_direction=2&action=wav&gesture=sml&size=m&user={{profile_origen.name}}">
+            <img src="https://www.habbo.es/habbo-imaging/avatarimage?direction=4&head_direction=2&action=wav&gesture=sml&size=m&user={{profile_destino.name}}">
+        </div>
     </div>
 </ng-template>
 

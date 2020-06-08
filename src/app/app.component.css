@@ -11,10 +11,10 @@ mat-toolbar{
 
 .menu > #logo > h2{
   margin-top: 5px;
+  font-family: 'Bungee Inline', cursive;
 }
 
 .menu > #logo{
-  font-family: "Ubuntu Condensed","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;  
   display: flex;
   line-height: 1.2;
   text-align: center;
@@ -45,8 +45,7 @@ mat-toolbar{
 .mat-menu{
   padding: 25px 20px 14px;
   font-size: 100%;
-  font-family: "Ubuntu Condensed","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
-
+  font-family: 'Bungee Inline', cursive;
 }
 
 #img_logo{
