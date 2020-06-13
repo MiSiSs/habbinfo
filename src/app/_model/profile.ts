@@ -8,6 +8,5 @@ export class Profile{
     memberSince: string;
     profileVisible: boolean;
     selectedBadges: Badge[];
-
 }
 

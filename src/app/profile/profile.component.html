@@ -11,8 +11,9 @@
         
         <mat-card-header>            
             <div id="profile-name">
-            <mat-card-title>{{profile.name}}</mat-card-title>
-            <mat-card-subtitle>Perfil: {{profile.profileVisible}}</mat-card-subtitle>            
+                <mat-card-title>{{profile.name}}</mat-card-title>
+                <mat-card-subtitle *ngIf = "profile.profileVisible">Perfil: Abierto</mat-card-subtitle>   
+                <mat-card-subtitle *ngIf = "!profile.profileVisible">Perfil: Cerrado</mat-card-subtitle>   
                 <img src="{{imagen}}" width="128" height="220">
                 <div style="text-align: center;">{{profile.memberSince}}</div>
             </div>
