@@ -13,6 +13,7 @@ mat-card-title{
     margin-top: initial;
     margin-left: initial;
     margin-left: initial;
+    font-family: 'Bungee Inline', cursive;
 }
 
 .lista_amigos{
@@ -56,8 +57,9 @@ mat-card-title{
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
-    padding-bottom: 2%;
+    padding-bottom: 4%;
     margin-bottom: -2%;
+    font-family: 'Bungee Inline', cursive;
 }
 
 #img_perfil_cerrado{

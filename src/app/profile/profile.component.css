@@ -92,6 +92,7 @@ button{
     background-color:  rgb(14, 57, 85);
     border-style: double;
     border-color: rgb(38, 133, 188);
+    font-family: 'Bungee Inline', cursive;
 }
 
 .form-full-width{
